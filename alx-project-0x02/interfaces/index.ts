@@ -7,12 +7,18 @@ export interface User {
     updatedAt: Date;
   }
   
-  interface NavigationItem {
+  export interface NavigationItem {
     name: string;
     href: string;
     icon?: React.ComponentType;
   }
   
-  interface HeaderProps {
+  export interface HeaderProps {
     onMenuClick?: () => void;
   }
+
+  export interface CardProps {
+    title: string;
+    content: string;
+  }
+
