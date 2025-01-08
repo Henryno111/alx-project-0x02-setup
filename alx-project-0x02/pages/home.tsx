@@ -11,7 +11,7 @@ const home = () => {
         <h1>Home page</h1>
         <div className='space-y-4'>
         <Card title="Welcome to ALX ProDev" content="This is the homepage of the ALX ProDev project." />
-        <Card title="About ALX ProDev" content="ALX ProDev is a project that aims to provide a platform for developers to showcase their skills and connect with potential employers." />
+        <Card title="Card 2" content="content of this card is unknown" />
         </div>
         </main>
     </div>
