@@ -1,11 +1,10 @@
-import React from "react";
-import { CardProps } from "../../interfaces";
-
+import React from 'react';
+import { CardProps } from '../../interfaces'; // Correctly importing the CardProps type
 
 const Card: React.FC<CardProps> = ({ title, content }) => {
   return (
-    <div className="bg-slate-700 p-4 rounded-md">
-      <h3 className="text-lg font-semibold">{title}</h3>
+    <div style={{ border: '1px solid #ccc', padding: '20px', borderRadius: '8px', marginBottom: '20px' }}>
+      <h2>{title}</h2>
       <p>{content}</p>
     </div>
   );
