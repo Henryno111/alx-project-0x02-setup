@@ -22,8 +22,8 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
         href: '/about',
       },
       {
-        name: 'Team',
-        href: '/team',
+        name: 'Posts',
+        href: '/posts',
       }
     ];
   
