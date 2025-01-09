@@ -24,7 +24,12 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
       {
         name: 'Posts',
         href: '/posts',
-      }
+      },
+      {
+        name: 'Users',
+        href: '/users',
+      },
+
     ];
   
     // Function to check if link is active
