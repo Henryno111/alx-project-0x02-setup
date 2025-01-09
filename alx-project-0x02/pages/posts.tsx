@@ -16,3 +16,5 @@ const posts = () => {
         </div>
     );
 };
+
+export default posts;
