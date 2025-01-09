@@ -27,3 +27,10 @@ export interface User {
     onClose: () => void;
     onSubmit: (title: string, content: string) => void;
   }
+
+  export interface ButtonProps {
+    size: 'sm' | 'md' | 'lg';
+    shape: 'rounded-sm' | 'rounded-md' | 'rounded-full';
+    label: string;
+    onClick: () => void;
+  }

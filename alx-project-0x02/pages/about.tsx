@@ -1,12 +1,41 @@
 import React from 'react'
 import Header from '@/components/layout/Header'
+import Button from '@/components/common/Button'
 
 const about = () => {
+
+    const handleButtonClick = (buttonLabel: string) => {
+        alert(`You clicked the ${buttonLabel} button!`)
+    };
+
   return (
     <div>
         <Header />
         <main className='pt-20'>
-        <h1>About page</h1>
+        <div className="flex flex-col items-center justify-center min-h-screen space-y-4">
+      <h1 className="text-4xl mb-8">About Us</h1>
+
+      <div className="space-x-4">
+        <Button
+          size="sm"
+          shape="rounded-sm"
+          label="Small Button"
+          onClick={() => handleButtonClick('small')}
+        />
+        <Button
+          size="md"
+          shape="rounded-md"
+          label="Medium Button"
+          onClick={() => handleButtonClick('medium')}
+        />
+        <Button
+          size="lg"
+          shape="rounded-full"
+          label="Large Button"
+          onClick={() => handleButtonClick('large')}
+        />
+      </div>
+    </div>
         </main>
     </div>
   )
