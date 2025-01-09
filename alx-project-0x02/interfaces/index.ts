@@ -42,3 +42,7 @@ export interface PostProps {
   content: string;
   userId: number;
 }
+
+export interface PostsPageProps {
+  posts: Post[];
+}

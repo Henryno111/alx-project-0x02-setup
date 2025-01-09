@@ -5,40 +5,46 @@ import PostCard from "@/components/common/PostCard";
 import { PostProps } from "@/interfaces";
 
 
-const Posts = () => {
-    const [posts, setPosts] = useState<PostProps[]>([]);
-
-    useEffect(() => {
-        fetch("https://jsonplaceholder.typicode.com/posts")
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then((data) => setPosts(data))
-            .catch((error) => console.error('There was a problem with the fetch operation:', error));
-    }, []);
-    
-
+const posts = ({ posts }: PostsPageProps) => {
     return (
-        <div>
-            <Header />
-            <main className='pt-20'>
-                <h1 className='flex justify-center'>Posts page</h1>
-                <div className='space-y-4'>
-                    {posts.map((post) => (
-                        <PostCard 
-                            key={post.id} 
-                            title={post.title} 
-                            content={post.body}
-                            userId={post.userId}
-                        />
-                    ))}
-                </div>
-            </main>
+      <div className="p-4">
+        <Header />
+        <h1 className="text-4xl mb-6">Posts</h1>
+  
+        {/* Display posts using PostCard component */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          {posts.map((post) => (
+            <PostCard
+              key={post.id}
+              title={post.title}
+              content={post.body}
+              userId={post.userId}
+            />
+          ))}
         </div>
+      </div>
     );
-};
-
-export default Posts;
+  };
+  
+  // Fetch posts using getStaticProps at build time
+  export async function getStaticProps() {
+    try {
+      const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+      const data = await response.json();
+  
+      return {
+        props: {
+          posts: data,  // Pass fetched posts as props
+        },
+      };
+    } catch (error) {
+      console.error("Error fetching posts:", error);
+      return {
+        props: {
+          posts: [],  // Return an empty array in case of an error
+        },
+      };
+    }
+  }
+  
+  export default posts;
