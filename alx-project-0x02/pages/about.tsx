@@ -17,19 +17,19 @@ const about = () => {
 
       <div className="space-x-4">
         <Button
-          size="sm"
+          size="small"
           shape="rounded-sm"
           label="Small Button"
           onClick={() => handleButtonClick('small')}
         />
         <Button
-          size="md"
+          size="medium"
           shape="rounded-md"
           label="Medium Button"
           onClick={() => handleButtonClick('medium')}
         />
         <Button
-          size="lg"
+          size="large"
           shape="rounded-full"
           label="Large Button"
           onClick={() => handleButtonClick('large')}

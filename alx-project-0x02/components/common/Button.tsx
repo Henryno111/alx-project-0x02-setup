@@ -1,20 +1,20 @@
+// components/common/Button.tsx
+
 import React from 'react';
-import { ButtonProps } from '../../interfaces';
+import { type ButtonProps } from '../../interfaces';
 
 const Button: React.FC<ButtonProps> = ({ size, shape, label, onClick }) => {
   let sizeClass = '';
   switch (size) {
-    case 'sm':
+    case 'small':
       sizeClass = 'px-4 py-2 text-sm';
       break;
-    case 'md':
+    case 'medium':
       sizeClass = 'px-6 py-3 text-base';
       break;
-    case 'lg':
+    case 'large':
       sizeClass = 'px-8 py-4 text-lg';
       break;
-    default:
-      sizeClass = 'px-6 py-3 text-base'; // Default case
   }
 
   let shapeClass = '';
@@ -28,8 +28,6 @@ const Button: React.FC<ButtonProps> = ({ size, shape, label, onClick }) => {
     case 'rounded-full':
       shapeClass = 'rounded-full';
       break;
-    default:
-      shapeClass = 'rounded-md'; // Default case
   }
 
   return (
