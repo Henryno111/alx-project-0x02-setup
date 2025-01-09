@@ -1,26 +1,16 @@
 // pages/users.tsx
 
-import React, { useEffect, useState } from 'react';
-import UserCard from '../components/common/UserCard';
+import React from 'react';
 import { UserProps } from '../interfaces';
-import Header from '@/components/layout/Header';
+import UserCard from '../components/common/UserCard';
 
-const Users = () => {
-  const [users, setUsers] = useState<UserProps[]>([]);
+interface UsersPageProps {
+  users: UserProps[];
+}
 
-  useEffect(() => {
-    const fetchUsers = async () => {
-      const response = await fetch('https://jsonplaceholder.typicode.com/users');
-      const data = await response.json();
-      setUsers(data);
-    };
-
-    fetchUsers();
-  }, []);
-
+const Users = ({ users }: UsersPageProps) => {
   return (
     <div className="p-4">
-        <Header />
       <h1 className="text-4xl mb-6">Users</h1>
       
       {/* Display the users using the UserCard component */}
@@ -38,5 +28,26 @@ const Users = () => {
     </div>
   );
 };
+
+// Fetch users data at build time with getStaticProps
+export async function getStaticProps() {
+  try {
+    const response = await fetch('https://jsonplaceholder.typicode.com/users');
+    const data = await response.json();
+
+    return {
+      props: {
+        users: data,  // Return the fetched users data as props
+      },
+    };
+  } catch (error) {
+    console.error('Error fetching users:', error);
+    return {
+      props: {
+        users: [],  // In case of an error, return an empty array
+      },
+    };
+  }
+}
 
 export default Users;
